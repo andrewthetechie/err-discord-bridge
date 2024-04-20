@@ -1,0 +1,12 @@
+[Core]
+Name = DiscordBridge
+Module = discord_bridge
+
+[Documentation]
+Description = This is a plugin that manages a TopicADay Channel!
+
+[Python]
+Version = 3.11.0
+
+[Errbot]
+min = 6.2.0
