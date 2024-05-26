@@ -1,0 +1,16 @@
+OneWay:
+  - source:
+      src: err
+      identifier: "@errbot"
+    destination:
+      dest: discord
+      identifier: "thisisachannelid"
+  - source:
+      src: discord
+      identifier: "anotherdiscordchannel"
+    destination:
+      dest: err
+      identifier: "#errchannel"
+# OneWay: []
+TwoWay: []
+Reply: []

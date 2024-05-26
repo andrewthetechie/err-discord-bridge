@@ -5,10 +5,14 @@ description = "Errbot plugin to bridge your backend to discord"
 authors = ["Andrew Herrington <andrew.the.techie@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "discord_bridge"}]
+include = ["*.plug"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 discord-py = "^2.3.2"
+pydantic = "^2.7.1"
+toml = "^0.10.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -26,4 +30,15 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.plugins."errbot.plugins"]
-aprs = "discord_bridge:DiscordBridge"
+discord_bridge = "discord_bridge:DiscordBridge"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+norecursedirs = ".github ci .git .idea"
+addopts = "-n auto --cov=discord_bridge --cov-report xml:.coverage.xml --cov-report=term-missing"
+
+[tool.bandit.assert_used]
+skips = ['*/test_*.py']
